@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<h2>User List</h2>
+
+<table border="1">
+<tr>
+    <th>Username</th>
+    <th>Age</th>
+</tr>
+{% for u in users %}
+<tr>
+    <td>{{ u.username }}</td>
+    <td>{{ u.age }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<br>
+<a href="/logout">Logout</a>
+</body>
+</html>

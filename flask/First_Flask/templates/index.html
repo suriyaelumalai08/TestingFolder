@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login / Register</title>
+</head>
+<body>
+
+{% if page == "login" %}
+
+    <h2>Login</h2>
+    <form method="post" action="/login">
+        <input name="username" placeholder="Username" required><br><br>
+        <input type="password" name="password" placeholder="Password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <br>
+    <input type="button" onclick="window.location.href='/?page=register'" value="Register">
+
+
+{% elif page == "register" %}
+
+    <h2>Register</h2>
+    <form method="post" action="/register">
+        <input name="username" placeholder="Username" required><br><br>
+        <input type="number" name="age" placeholder="Age" required><br><br>
+        <input type="password" name="password" placeholder="Password" required><br><br>
+        <button type="submit">Register</button>
+    </form>
+
+    <br>
+    <input type="button" onclick="window.location.href='/?page=login'" value="Logout">
+
+
+{% elif page == "admin" %}
+
+    <h2>Admin Dashboard</h2>
+
+    <table border="1">
+        <tr>
+            <th>Username</th>
+            <th>Age</th>
+        </tr>
+        {% for u in users %}
+        <tr>
+            <td>{{ u.username }}</td>
+            <td>{{ u.age }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <input type="button" onclick="window.location.href='/logout'" value="Logout">
+
+{% endif %}
+
+</body>
+</html>

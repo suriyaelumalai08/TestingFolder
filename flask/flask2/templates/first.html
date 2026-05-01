@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>login successfully</h1>
+<!-- 
+{% if datas %}
+    {% for u in datas %}
+        <p>Username: {{ u.username }}</p>
+        <p>Password: {{ u.password }}</p>
+    {% endfor %}
+{% endif %} -->
+<h1>Iris Prediction</h1>
+
+<input type="number" step="any" id="sepal_length" placeholder="Sepal length">
+<input type="number" step="any" id="sepal_width" placeholder="Sepal width">
+<input type="number" step="any" id="petal_length" placeholder="Petal length">
+<input type="number" step="any" id="petal_width" placeholder="Petal width">
+
+<button onclick="output_function()">Predict</button>
+
+<h2 id="output"></h2>
+
+<script>
+function output_function() {
+    const data = {
+        sepal_length: document.getElementById("sepal_length").value,
+        sepal_width: document.getElementById("sepal_width").value,
+        petal_length: document.getElementById("petal_length").value,
+        petal_width: document.getElementById("petal_width").value
+    };
+
+    fetch("/predict", {
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(res => {
+        document.getElementById("output").innerText =
+            "Prediction: " + res.result;
+    });
+}
+</script>
+
+
+</body>
+</html>
