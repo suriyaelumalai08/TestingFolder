@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Online Book Showcase — Open Library Search</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <h1 class="site-title">Online Book Showcase</h1>
+
+      <div class="search-wrap" role="search" aria-label="Search books">
+        <label for="search" class="visually-hidden">Search books by title or author</label>
+        <input id="search" class="search-input" type="search" placeholder="Search by title or author…" autocomplete="off" />
+      </div>
+    </div>
+  </header>
+
+  <main class="container main">
+    <section aria-labelledby="library-heading" class="library-section">
+      <h2 id="library-heading" class="section-title">Search Results</h2>
+
+      <div id="status" class="status">Type a title or author to search books (Open Library)</div>
+
+      <div id="booksGrid" class="books-grid" role="list" aria-live="polite">
+        <!-- Book cards rendered by script.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+    <div class="modal-overlay" data-action="close"></div>
+
+    <div class="modal-panel" role="document">
+      <button class="modal-close" aria-label="Close" data-action="close">&times;</button>
+
+      <div class="modal-body">
+        <img id="modal-image" src="" alt="" class="modal-image" />
+        <div class="modal-meta">
+          <h3 id="modal-title" class="modal-title"></h3>
+          <p id="modal-author" class="modal-author"></p>
+          <p id="modal-extra" class="modal-extra"></p>
+          <p id="modal-desc" class="modal-desc"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Online Book Showcase — Data from Open Library</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

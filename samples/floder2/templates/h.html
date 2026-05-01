@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Input</title>
+</head>
+<body>
+
+    <h2>Enter something</h2>
+
+    <form method="POST">
+        <input type="number" name="num1" required>
+        <input type="number" name="num2" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if result is not none %}
+        <h3>You entered:</h3>
+        <p>{{ result }}</p>
+    {% endif %}
+
+</body>
+</html>
